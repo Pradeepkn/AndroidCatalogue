@@ -1,29 +1,66 @@
 package com.example.signupapi;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+public class SignUpActivity extends Activity implements OnClickListener{
 
-public class SignUpActivity extends Activity {
+	private EditText userName, passWord, eMail, mNumber;
+	private Button  signup;
+	//final Context context = this;
+	//int errorCode;
 
-	private String url1 = "http://brinvents.com/jewel/Apis/signupclass.php";
-	private EditText username,email,mnumber,password,errorCode,errorMessage,statusCode;
-	private HandleJSON obj;
+	String responseText = null;
+	// JSON Response node names
+	private static int TAG_STATUSCODE;
+	private static int TAG_ERRORCODE ;
+	private static String TAG_ERRORMESSAGE = "errorMessage";
+
+	// Progress Dialog
+	private ProgressDialog pDialog;
+
+	// JSON parser class
+	HandleJSON jsonParser = new HandleJSON();
+
+	//testing on device:
+	private static final String url = "http://brinvents.com/jewel/Apis/signupclass.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("on create() started.......................");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign_up);
-		username = (EditText)findViewById(R.id.editText1);
-		email = (EditText)findViewById(R.id.editText2);
-		mnumber = (EditText)findViewById(R.id.editText3);
-		password = (EditText)findViewById(R.id.editText4);
-		errorCode = (EditText)findViewById(R.id.editText5);
-		errorMessage = (EditText)findViewById(R.id.editText6);
-		statusCode = (EditText)findViewById(R.id.editText7);
+		userName = (EditText)findViewById(R.id.editText1);
+		eMail = (EditText)findViewById(R.id.editText2);
+		mNumber = (EditText)findViewById(R.id.editText3);
+		passWord = (EditText)findViewById(R.id.editText4);
+
+		signup = (Button)findViewById(R.id.button1);
+		signup.setOnClickListener(this);
 	}
 
 	@Override
@@ -32,19 +69,141 @@ public class SignUpActivity extends Activity {
 		getMenuInflater().inflate(R.menu.sign_up, menu);
 		return true;
 	}
-	public void open(View view) {
-		
-		System.out.println("open() invoking..................................");
-		
-		System.out.println(url1+"url====================================");
 
-		obj = new HandleJSON(url1);
-		obj.fetchJSON();
-		System.out.println(obj+"obj..................................");
+	@Override
+	public void onClick(View v) {
 
-		while(obj.parsingComplete);
-		errorCode.setText(obj.getErrorcode());
-		errorMessage.setText(obj.getErrormessage());
-		statusCode.setText(obj.getStatuscode());
+		System.out.println("when signup button is clicked......................");
+		new CreateUser().execute();
+	}
+	class CreateUser extends AsyncTask<String, String, String> {
+
+		/**
+		 * Before starting background thread Show Progress Dialog
+		 * */
+		boolean failure = false;
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			pDialog = new ProgressDialog(SignUpActivity.this);
+			pDialog.setMessage("Creating User...");
+			pDialog.setIndeterminate(false);
+			pDialog.setCancelable(true);
+			pDialog.show();
+		}
+
+		@Override
+		protected String doInBackground(String... args) {
+
+			// Check for success tag
+			String username = userName.getText().toString();
+			Log.d(username, "username====================");
+			String password = passWord.getText().toString();
+			Log.d(password, "password====================");
+
+			String email = eMail.getText().toString();
+			Log.d(email, "email====================");
+
+			String mnumber = mNumber.getText().toString();
+			Log.d(mnumber, "mnumber====================");
+
+			try {
+				// Building Parameters
+				JSONObject jsonObj = new JSONObject();
+				jsonObj.put("username", username);
+				jsonObj.put("password", password);
+				jsonObj.put("email", email);
+				jsonObj.put("mnumber", mnumber);
+
+				System.out.println(jsonObj+"------------");
+				// request method is POST
+				// defaultHttpClient
+				DefaultHttpClient httpClient = new DefaultHttpClient();
+				HttpPost httpPostreq = new HttpPost(url);
+
+				//Create a String entity. String entity is appended to the url in a format that is required in HTTP POST.
+				StringEntity se = new StringEntity(jsonObj.toString());
+
+				se.setContentType("application/json;charset=UTF-8");
+				se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json;charset=UTF-8"));
+
+				//Set entitiy in post request.
+				httpPostreq.setEntity(se);
+
+				//Execute POST request.
+				HttpResponse httpResponse = httpClient.execute(httpPostreq);
+
+				//To receive the response from the Server after HTTP POST execution. Write in trycatch block.
+				try {
+					responseText = EntityUtils.toString(httpResponse.getEntity());
+				}catch (ParseException e) {
+					e.printStackTrace();
+					Log.i("Parse Exception", e + "response got");
+				}
+
+				System.out.println(responseText+"response from server-------------");
+
+				/*List<NameValuePair> params = new ArrayList<NameValuePair>();
+				params.add(new BasicNameValuePair("username", username));
+				params.add(new BasicNameValuePair("password", password));
+				params.add(new BasicNameValuePair("email", email));
+				params.add(new BasicNameValuePair("mnumber", mnumber));
+				System.out.println("parameters===================================="+params);*/
+				Log.d("request!", "starting");
+
+				//Get the response string into a new jSON object and get values from it.
+				JSONObject json = new JSONObject(responseText);
+				System.out.println(json+"response from json object...............");
+
+				/*//Posting user data to script
+				JSONObject json = jsonParser.makeHttpRequest(
+						url, "POST", jsonObj);
+				 */
+				// full json response
+				//Log.d("register atempt", json.toString());
+
+				// json success element
+				JSONObject result = json.getJSONObject("Result");
+				TAG_STATUSCODE = result.getInt("statusCode");
+				System.out.println("statusCode->"+TAG_STATUSCODE);
+				TAG_ERRORCODE = result.getInt("errorCode");
+				System.out.println("errorCode->"+TAG_ERRORCODE);
+				TAG_ERRORMESSAGE = result.getString("errorMessage");
+				System.out.println("errorMessage->"+TAG_ERRORMESSAGE);
+
+				//Intent inent = new Intent(SignUpActivity.this, SignUpSuccess.class);
+				//startActivity(inent);
+
+				//success condition 
+				if (TAG_STATUSCODE == 200) {
+					Log.d("signup Successful!", json.toString());
+					Intent i = new Intent(SignUpActivity.this, SignUpSuccess.class);
+					finish();
+					startActivity(i);
+				}else{
+					Log.d("user already exists", json.getString(TAG_ERRORMESSAGE));
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+		/**
+		 * After completing background task Dismiss the progress dialog
+		 * **/
+		protected void onPostExecute(String file_url) {
+			// dismiss the dialog once product deleted
+			pDialog.dismiss();
+			if (file_url != null){
+				Toast.makeText(SignUpActivity.this, file_url, Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 }

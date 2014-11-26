@@ -1,94 +1,84 @@
 package com.example.signupapi;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
+import android.util.Log;
 
 public class HandleJSON {
-	private String errorCode = "errorcode";
-	private String errorMessage = "errormessage";
-	private String statusCode = "statuscode";
+	static InputStream is = null;
+	static JSONObject jObj = null;
+	static String json = "";
+	String responseText = null;
 
-	private String urlString = null;
+	//constructor
+	public HandleJSON(){
 
-	public volatile boolean parsingComplete = true;
-	public HandleJSON(String url){
-		this.urlString = url;
-	}
-	public String getErrorcode() {
-		return errorCode;
-	}
-	public void setErrorcode(String errorcode) {
-		this.errorCode = errorcode;
-	}
-	public String getErrormessage() {
-		return errorMessage;
-	}
-	public void setErrormessage(String errormessage) {
-		this.errorMessage = errormessage;
-	}
-	public String getStatuscode() {
-		return statusCode;
-	}
-	public void setStatuscode(String statuscode) {
-		this.statusCode = statuscode;
+		System.out.println("calling conctructor------------------");
 	}
 
-	@SuppressLint("NewApi")
-	public void readAndParseJSON(String in) {
-		System.out.println("readAndParseJSON()----------------------------------------------");
+	public JSONObject getJSONFromUrl(final String url) {
+		// Making HTTP request
 		try {
-			JSONObject reader = new JSONObject(in);
-			System.out.println(reader+"reader.................................");
-			JSONObject Result  = reader.getJSONObject("Result");
-			System.out.println(Result+"Result----------------------------------");
-			errorCode = Result.getString("errorCode");
-			errorMessage = Result.getString("errorMessage");
-			statusCode = Result.getString("statusCode");
+			// Construct the client and the HTTP request.
+			DefaultHttpClient httpClient = new DefaultHttpClient();
+			HttpPost httpPost = new HttpPost(url);
 
-			parsingComplete = false;
-		} catch (Exception e) {
+			// Execute the POST request and store the response locally.
+			HttpResponse httpResponse = httpClient.execute(httpPost);
+			// Extract data from the response.
+			HttpEntity httpEntity = httpResponse.getEntity();
+			// Open an inputStream with the data content.
+			is = httpEntity.getContent();
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	public void fetchJSON(){
-		Thread thread = new Thread(new Runnable(){
-			@Override
-			public void run() {
-				try {
-					URL url = new URL(urlString);
-					System.out.println(url+"url------------------------------------");
-					HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-					System.out.println(conn+"conn===============================");
-					conn.setReadTimeout(10000 /* milliseconds */);
-					conn.setConnectTimeout(15000 /* milliseconds */);
-					conn.setRequestMethod("POST");
-					conn.setDoInput(true);
-					// Starts the query
-					conn.connect();
-					InputStream stream = conn.getInputStream();
 
-					String data = convertStreamToString(stream);
-					System.out.println(data+"data==================================");
+		try {
+			// Create a BufferedReader to parse through the inputStream.
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					is, "iso-8859-1"), 8);
+			// Declare a string builder to help with the parsing.
+			StringBuilder sb = new StringBuilder();
+			// Declare a string to store the JSON object data in string form.
+			String line = null;
 
-					readAndParseJSON(data);
-					stream.close();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+			// Build the string until null.
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
 			}
-		});
 
-		thread.start(); 		
-	}
-	static String convertStreamToString(java.io.InputStream is) {
-		java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-		System.out.println(s+"s-----------------------------------------");
-		return s.hasNext() ? s.next() : "";
+			// Close the input stream.
+			is.close();
+			// Convert the string builder data to an actual string.
+			json = sb.toString();
+		} catch (Exception e) {
+			Log.e("Buffer Error", "Error converting result " + e.toString());
+		}
+
+		// Try to parse the string to a JSON object
+		try {
+			jObj = new JSONObject(json);
+		} catch (JSONException e) {
+			Log.e("JSON Parser", "Error parsing data " + e.toString());
+		}
+
+		// Return the JSON Object.
+		return jObj;
 	}
 }
