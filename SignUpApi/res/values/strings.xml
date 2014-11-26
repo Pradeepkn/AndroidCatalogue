@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SignUpApi</string>
+    <string name="signup">signup</string>
+    <string name="userName">userName:</string>
+    <string name="email">email:</string>
+    <string name="mnumber">mNumber:</string>
+    <string name="password">password:</string>
+    <string name="button">signup</string>
+    <string name="errorcode">errorCode:</string>
+    <string name="errormessage">errorMessage:</string>
+    <string name="statuscode">statuscode:</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
