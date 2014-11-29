@@ -15,12 +15,30 @@
         android:text="@string/loginsucess" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/homeview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
         android:text="@string/homescreen" />
+
+    <TextView
+        android:id="@+id/offersview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homeview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
+        android:text="@string/offersAPI" />
+
+    <TextView
+        android:id="@+id/updateoffersapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offersview1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="UpdateOffersApi" />
 
 </RelativeLayout>

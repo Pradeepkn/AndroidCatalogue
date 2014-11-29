@@ -117,6 +117,7 @@ public class SignUpActivity extends Activity implements OnClickListener{
 				jsonObj.put("mnumber", mnumber);
 
 				System.out.println(jsonObj+"------------");
+
 				// request method is POST
 				// defaultHttpClient
 				DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -135,6 +136,7 @@ public class SignUpActivity extends Activity implements OnClickListener{
 				HttpResponse httpResponse = httpClient.execute(httpPostreq);
 
 				//To receive the response from the Server after HTTP POST execution. Write in trycatch block.
+
 				try {
 					responseText = EntityUtils.toString(httpResponse.getEntity());
 				}catch (ParseException e) {
@@ -144,24 +146,11 @@ public class SignUpActivity extends Activity implements OnClickListener{
 
 				System.out.println(responseText+"response from server-------------");
 
-				/*List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("username", username));
-				params.add(new BasicNameValuePair("password", password));
-				params.add(new BasicNameValuePair("email", email));
-				params.add(new BasicNameValuePair("mnumber", mnumber));
-				System.out.println("parameters===================================="+params);*/
 				Log.d("request!", "starting");
 
 				//Get the response string into a new jSON object and get values from it.
 				JSONObject json = new JSONObject(responseText);
 				System.out.println(json+"response from json object...............");
-
-				/*//Posting user data to script
-				JSONObject json = jsonParser.makeHttpRequest(
-						url, "POST", jsonObj);
-				 */
-				// full json response
-				//Log.d("register atempt", json.toString());
 
 				// json success element
 				JSONObject result = json.getJSONObject("Result");
@@ -172,19 +161,18 @@ public class SignUpActivity extends Activity implements OnClickListener{
 				TAG_ERRORMESSAGE = result.getString("errorMessage");
 				System.out.println("errorMessage->"+TAG_ERRORMESSAGE);
 
-				//Intent inent = new Intent(SignUpActivity.this, SignUpSuccess.class);
-				//startActivity(inent);
-
 				//success condition 
-				if (TAG_STATUSCODE == 200) {
+				if (TAG_ERRORCODE == 0) {
 					Log.d("signup Successful!", json.toString());
 					Intent i = new Intent(SignUpActivity.this, SignUpSuccess.class);
 					finish();
 					startActivity(i);
 				}else{
-					Log.d("user already exists", json.getString(TAG_ERRORMESSAGE));
+					//Toast.makeText(SignUpActivity.this, "failure..", Toast.LENGTH_LONG).show();
+					Log.d("failure..", json.getString(TAG_ERRORMESSAGE));
 				}
-			} catch (JSONException e) {
+			}
+			catch (JSONException e) {
 				e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();

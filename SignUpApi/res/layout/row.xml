@@ -6,29 +6,11 @@
     android:orientation="vertical"
     android:padding="4dp" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/images" />
-
     <ImageView
-        android:id="@+id/ivImage"
+        android:id="@+id/ivImageLogo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="images"
-        android:src="@drawable/ic_launcher" />
-
-    <ImageView
-        android:id="@+id/ivImage2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher" />
-
-    <ImageView
-        android:id="@+id/ivImage3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:src="@drawable/ic_launcher" />
 
 </LinearLayout>

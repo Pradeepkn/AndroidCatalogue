@@ -24,7 +24,7 @@ public class HandleJSON {
 	//constructor
 	public HandleJSON(){
 
-		System.out.println("calling conctructor------------------");
+		System.out.println("calling conctructor of updateoffers------------------");
 	}
 
 	public JSONObject getJSONFromUrl(final String url) {

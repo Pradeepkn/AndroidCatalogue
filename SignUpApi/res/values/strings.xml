@@ -38,7 +38,13 @@
     <string name="homescreen">GoToHomeScreen</string>
     <string name="welcomehome">WelcomeToHomeScreen</string>
     <string name="title_activity_offers_api">OffersApi</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="updatesucuess">UpdateSucuess.....</string>
     <string name="images">Images</string>
+    <string name="offersAPI">offersAPI</string>
+    <string name="title_activity_update_offers_api">UpdateOffersApi</string>
+    <string name="updateoffersapi">UpdateOffersApi</string>
+    <string name="title_activity_update_offers_sucuess">UpdateOffersSucuess</string>
+    <string name="title_activity_gold_api">GoldApi</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

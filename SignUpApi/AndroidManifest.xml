@@ -56,6 +56,18 @@
             android:name=".OffersApi"
             android:label="@string/title_activity_offers_api" >
         </activity>
+        <activity
+            android:name=".UpdateOffersApi"
+            android:label="@string/title_activity_update_offers_api" >
+        </activity>
+        <activity
+            android:name=".UpdateOffersSucuess"
+            android:label="@string/title_activity_update_offers_sucuess" >
+        </activity>
+        <activity
+            android:name=".GoldApi"
+            android:label="@string/title_activity_gold_api" >
+        </activity>
     </application>
 
 </manifest>
