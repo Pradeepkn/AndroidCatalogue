@@ -17,7 +17,7 @@ public class PasswordRecovery extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_password_recovery);
-		button = (Button) findViewById(R.id.button1);
+		button = (Button) findViewById(R.id.submitButton11);
 		button.setOnClickListener(this);
 	}
 

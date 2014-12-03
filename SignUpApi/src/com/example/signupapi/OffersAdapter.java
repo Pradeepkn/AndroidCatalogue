@@ -52,12 +52,12 @@ public class OffersAdapter extends ArrayAdapter<Offers>{
 		holder.imageview.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.imageview).execute(offerList.get(position).getOffer_image());
 		holder.offerJewelleryType.setText(offerList.get(position).getJewellery_type());
-		holder.offerType.setText("Offer_type:"+offerList.get(position).getOffer_type());
-		holder.offerDisscount.setText("Offer_discount: " + offerList.get(position).getOffer_discount());
-		holder.offerMakingChargeDisccount.setText("Making_charge_discount:"+offerList.get(position).getMaking_charge_discount());
-		holder.offerWastageCharge.setText("Wastage_charge: " + offerList.get(position).getWastage_charge());
-		holder.offerOnPurity.setText("Offer_on_purity: " + offerList.get(position).getOffer_on_purity());
-		holder.offerValidity.setText("Offer_validity: " + offerList.get(position).getOffer_validity());
+		holder.offerType.setText("Offertype:"+offerList.get(position).getOffer_type());
+		holder.offerDisscount.setText("Offerdiscount: " + offerList.get(position).getOffer_discount());
+		holder.offerMakingChargeDisccount.setText("Makingchargediscount:"+offerList.get(position).getMaking_charge_discount());
+		holder.offerWastageCharge.setText("Wastagecharge: " + offerList.get(position).getWastage_charge());
+		holder.offerOnPurity.setText("Offeronpurity: " + offerList.get(position).getOffer_on_purity());
+		holder.offerValidity.setText("Offervalidity: " + offerList.get(position).getOffer_validity());
 		return v;
 	}
 

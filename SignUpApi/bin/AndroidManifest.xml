@@ -68,6 +68,10 @@
             android:name=".GoldApi"
             android:label="@string/title_activity_gold_api" >
         </activity>
+        <activity
+            android:name=".DiamondApi"
+            android:label="@string/title_activity_diamond_api" >
+        </activity>
     </application>
 
 </manifest>

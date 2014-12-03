@@ -46,5 +46,6 @@
     <string name="title_activity_update_offers_sucuess">UpdateOffersSucuess</string>
     <string name="title_activity_gold_api">GoldApi</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_diamond_api">DiamondApi</string>
 
 </resources>

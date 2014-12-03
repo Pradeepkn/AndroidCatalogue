@@ -20,7 +20,7 @@ public class SignUpSuccess extends Activity {
 
 		final Context context = this;
 
-		button = (Button) findViewById(R.id.loginbutton1);
+		button = (Button) findViewById(R.id.successButton);
 
 		button.setOnClickListener(new View.OnClickListener() {
 

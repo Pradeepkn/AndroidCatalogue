@@ -32,18 +32,18 @@ import android.widget.Toast;
 public class LoginApi extends Activity implements OnClickListener{
 
 	private EditText userName, Password;
-	private Button login,signup;
+	private Button login;
 	final Context context = this;
-	private TextView forgotPassword;
+	private TextView forgotPassword, signup;
 
 	// Progress Dialog
 	private ProgressDialog pDialog;
 
 	// JSON parser class
-	HandleJSON jsonParser = new HandleJSON();
+	//HandleJSON jsonParser = new HandleJSON();
 
 	//testing on Emulator:
-	private static final String LOGIN_URL = "http://brinvents.com/jewel/Apis/loginclass.php";
+	//private static final String LOGIN_URL = "http://brinvents.com/jewel/Apis/loginclass.php";
 
 	public String TAG_STATUSCODE =null;
 	public  String TAG_ERRORMESSAGE = null;
@@ -55,13 +55,13 @@ public class LoginApi extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_login_api);
 
 		//setup input fields
-		userName = (EditText)findViewById(R.id.editText1);
-		Password = (EditText)findViewById(R.id.editText2);
-		forgotPassword = (TextView) findViewById(R.id.forgotpassword);
+		userName = (EditText)findViewById(R.id.userName1);
+		Password = (EditText)findViewById(R.id.password1);
+		forgotPassword = (TextView) findViewById(R.id.forgotpasswordView);
+		signup = (TextView) findViewById(R.id.signupView1);
 
 		//setup buttons listners
-		login = (Button)findViewById(R.id.LoginButon);
-		signup = (Button)findViewById(R.id.signupButton);
+		login = (Button)findViewById(R.id.loginButton1);
 
 		login.setOnClickListener(this);
 		signup.setOnClickListener(this);
@@ -78,14 +78,14 @@ public class LoginApi extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.LoginButon:
-			new AttemptLogin().execute();
+		case R.id.loginButton1:
+			new AttemptLogin().execute("http://brinvents.com/jewel/Apis/loginclass.php");
 			break;
-		case R.id.signupButton:
+		case R.id.signupView1:
 			Intent i = new Intent(this, SignUpActivity.class);
 			startActivity(i);
 			break;
-		case R.id.forgotpassword:
+		case R.id.forgotpasswordView:
 			Intent intent = new Intent(this, ForgotPassword.class);
 			startActivity(intent);
 			break;
@@ -112,7 +112,7 @@ public class LoginApi extends Activity implements OnClickListener{
 		}
 
 		@Override
-		protected String doInBackground(String... args) {
+		protected String doInBackground(String... urls) {
 			// Check for success tag
 			//   int success;
 			String responseText = null;
@@ -127,7 +127,7 @@ public class LoginApi extends Activity implements OnClickListener{
 				Log.d("request!", "starting");
 				// getting product details by making HTTP request
 				DefaultHttpClient httpClient = new DefaultHttpClient();
-				HttpPost httpPostreq = new HttpPost(LOGIN_URL);
+				HttpPost httpPostreq = new HttpPost(urls[0]);
 
 				// check your log for json response
 				//               Log.d("Login attempt", json.toString());

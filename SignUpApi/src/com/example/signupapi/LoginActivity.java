@@ -14,6 +14,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 	TextView textView1;
 	TextView textView2;
 	TextView textView3;
+	TextView textView4;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +23,11 @@ public class LoginActivity extends Activity implements OnClickListener{
 		textView1 = (TextView) findViewById(R.id.homeview);
 		textView2 = (TextView) findViewById(R.id.offersview1);
 		textView3 = (TextView) findViewById(R.id.updateoffersapi);
+		textView4 = (TextView) findViewById(R.id.goldApi);
 		textView1.setOnClickListener(this);
 		textView2.setOnClickListener(this);
 		textView3.setOnClickListener(this);
+		textView4.setOnClickListener(this);
 	}
 
 	@Override
@@ -41,6 +44,10 @@ public class LoginActivity extends Activity implements OnClickListener{
 		case R.id.updateoffersapi:
 			Intent intent2 = new Intent(this, UpdateOffersApi.class);
 			startActivity(intent2);
+			break;
+		case R.id.goldApi:
+			Intent intent3 = new Intent(this, GoldApi.class);
+			startActivity(intent3);
 			break;
 		default:
 			break;

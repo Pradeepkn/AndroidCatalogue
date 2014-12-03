@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 public class HomePage extends Activity {
 
-	Button button;
+	TextView textView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -20,23 +20,13 @@ public class HomePage extends Activity {
 		setContentView(R.layout.activity_home_page);
 		final Context context = this;
 
-		button = (Button) findViewById(R.id.signinbutton);
+		textView = (TextView) findViewById(R.id.clickhereView);
 
-		button.setOnClickListener(new View.OnClickListener() {
+		textView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(context, LoginApi.class);
-				startActivity(intent);
-			}
-		}); 
-		button = (Button) findViewById(R.id.signupbutton);
-
-		button.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(context, SignUpActivity.class);
 				startActivity(intent);
 			}
 		}); 

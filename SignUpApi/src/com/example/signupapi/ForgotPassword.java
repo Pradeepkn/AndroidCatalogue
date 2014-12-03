@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import android.widget.Toast;
 public class ForgotPassword extends Activity implements OnClickListener{
 
 	private EditText eMail;
-	private TextView  passwordRec;
+	private Button submit;
 
 	String responseText = null;
 	// JSON Response node names
@@ -40,7 +41,7 @@ public class ForgotPassword extends Activity implements OnClickListener{
 	private ProgressDialog pDialog;
 
 	// JSON parser class
-	HandleJSON1 jsonParser = new HandleJSON1();
+	//HandleJSON1 jsonParser = new HandleJSON1();
 
 	//testing on device:
 	private static final String url = "http://brinvents.com/jewel/Apis/forgetpwdclass.php?email=";
@@ -50,9 +51,9 @@ public class ForgotPassword extends Activity implements OnClickListener{
 		System.out.println("on create() started.......................");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forgot_password);
-		eMail = (EditText) findViewById(R.id.editText1);
-		passwordRec = (TextView) findViewById(R.id.textView3);
-		passwordRec.setOnClickListener(this);
+		eMail = (EditText) findViewById(R.id.eMail1);
+		submit = (Button) findViewById(R.id.submitButton);
+		submit.setOnClickListener(this);
 	}
 
 	@Override

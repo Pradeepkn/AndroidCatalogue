@@ -44,22 +44,22 @@ public class SignUpActivity extends Activity implements OnClickListener{
 	private ProgressDialog pDialog;
 
 	// JSON parser class
-	HandleJSON jsonParser = new HandleJSON();
+	//HandleJSON jsonParser = new HandleJSON();
 
 	//testing on device:
-	private static final String url = "http://brinvents.com/jewel/Apis/signupclass.php";
+	//private static final String url = "http://brinvents.com/jewel/Apis/signupclass.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("on create() started.......................");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign_up);
-		userName = (EditText)findViewById(R.id.editText1);
-		eMail = (EditText)findViewById(R.id.editText2);
-		mNumber = (EditText)findViewById(R.id.editText3);
-		passWord = (EditText)findViewById(R.id.editText4);
+		userName = (EditText)findViewById(R.id.userName);
+		eMail = (EditText)findViewById(R.id.password);
+		mNumber = (EditText)findViewById(R.id.eMail);
+		passWord = (EditText)findViewById(R.id.mobileNumber);
 
-		signup = (Button)findViewById(R.id.button1);
+		signup = (Button)findViewById(R.id.registerButton);
 		signup.setOnClickListener(this);
 	}
 
@@ -74,7 +74,7 @@ public class SignUpActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 
 		System.out.println("when signup button is clicked......................");
-		new CreateUser().execute();
+		new CreateUser().execute("http://brinvents.com/jewel/Apis/signupclass.php");
 	}
 	class CreateUser extends AsyncTask<String, String, String> {
 
@@ -94,7 +94,7 @@ public class SignUpActivity extends Activity implements OnClickListener{
 		}
 
 		@Override
-		protected String doInBackground(String... args) {
+		protected String doInBackground(String... urls) {
 
 			// Check for success tag
 			String username = userName.getText().toString();
@@ -121,7 +121,7 @@ public class SignUpActivity extends Activity implements OnClickListener{
 				// request method is POST
 				// defaultHttpClient
 				DefaultHttpClient httpClient = new DefaultHttpClient();
-				HttpPost httpPostreq = new HttpPost(url);
+				HttpPost httpPostreq = new HttpPost(urls[0]);
 
 				//Create a String entity. String entity is appended to the url in a format that is required in HTTP POST.
 				StringEntity se = new StringEntity(jsonObj.toString());
