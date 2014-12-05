@@ -76,13 +76,11 @@ public class GoldApi extends Activity {
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient.execute(httppost);
 
-				// StatusLine stat = response.getStatusLine();
 				int status = response.getStatusLine().getStatusCode();
 
 				if (status == 200) {
 					HttpEntity entity = response.getEntity();
 					String data = EntityUtils.toString(entity);
-
 
 					JSONObject json = new JSONObject(data);
 					System.out.println("response from the server-----------"+json);

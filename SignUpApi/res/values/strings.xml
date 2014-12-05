@@ -47,5 +47,9 @@
     <string name="title_activity_gold_api">GoldApi</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_diamond_api">DiamondApi</string>
+    <string name="title_activity_silver_api">SilverApi</string>
+    <string name="title_activity_platinum_api">PlatinumApi</string>
+    <string name="title_activity_carousel">CarouselActivity</string>
+    <string name="jewellerystore">jewellery shop</string>
 
 </resources>

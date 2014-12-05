@@ -167,7 +167,7 @@ public class LoginApi extends Activity implements OnClickListener{
 				//  success = json.getInt(TAG_SUCCESS);
 				if (TAG_ERRORCODE == 0) {
 					Log.d("Login Successful!", json.toString());
-					Intent i = new Intent(LoginApi.this, LoginActivity.class);
+					Intent i = new Intent(LoginApi.this, CarouselActivity.class);
 					finish();
 					startActivity(i);
 					//	return json.getString(TAG_MESSAGE);

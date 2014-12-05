@@ -72,6 +72,18 @@
             android:name=".DiamondApi"
             android:label="@string/title_activity_diamond_api" >
         </activity>
+        <activity
+            android:name=".SilverApi"
+            android:label="@string/title_activity_silver_api" >
+        </activity>
+        <activity
+            android:name=".PlatinumApi"
+            android:label="@string/title_activity_platinum_api" >
+        </activity>
+        <activity
+            android:name=".CarouselActivity"
+            android:label="@string/title_activity_carousel" >
+        </activity>
     </application>
 
 </manifest>

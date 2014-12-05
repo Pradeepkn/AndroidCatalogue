@@ -36,11 +36,11 @@ public class DiamondAdapter extends ArrayAdapter<Diamond>{
 		if (v == null) {
 			holder = new ViewHolder();
 			v = inflater.inflate(Resource, null);
-			holder.goldCT = (TextView) v.findViewById(R.id.CT);
-			holder.goldPT = (TextView) v.findViewById(R.id.PT);
-			holder.imageview = (ImageView) v.findViewById(R.id.ivImageLogo1);
+			holder.diamondCT = (TextView) v.findViewById(R.id.CT);
+			holder.diamondPT = (TextView) v.findViewById(R.id.PT);
+			holder.imageview = (ImageView) v.findViewById(R.id.diamondlogo);
 			holder.jewelleryTypeName = (TextView) v.findViewById(R.id.jewellery_type_name);
-			holder.goldName = (TextView) v.findViewById(R.id.name);
+			holder.diamondName = (TextView) v.findViewById(R.id.name);
 			holder.genderName = (TextView) v.findViewById(R.id.gender_name);
 			holder.wearingStyleName = (TextView) v.findViewById(R.id.wearing_style_name);
 			holder.designTypeName = (TextView) v.findViewById(R.id.design_type_name);
@@ -55,9 +55,9 @@ public class DiamondAdapter extends ArrayAdapter<Diamond>{
 		}
 		holder.imageview.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.imageview).execute(dimondList.get(position).getUri());
-		holder.goldCT.setText(dimondList.get(position).getCT());
-		holder.goldPT.setText("PT:"+dimondList.get(position).getPT());
-		holder.goldName.setText("name: " + dimondList.get(position).getName());
+		holder.diamondCT.setText(dimondList.get(position).getCT());
+		holder.diamondPT.setText("PT:"+dimondList.get(position).getPT());
+		holder.diamondName.setText("name: " + dimondList.get(position).getName());
 		holder.jewelleryTypeName.setText("jewellerytypename:"+dimondList.get(position).getJewellery_type_name());
 		holder.genderName.setText("gendername: " + dimondList.get(position).getGender_name());
 		holder.wearingStyleName.setText("wearingstylename: " + dimondList.get(position).getWearing_style_name());
@@ -72,9 +72,9 @@ public class DiamondAdapter extends ArrayAdapter<Diamond>{
 
 	static class ViewHolder {
 		public ImageView imageview;
-		public TextView goldCT;
-		public TextView goldPT;
-		public TextView goldName;
+		public TextView diamondCT;
+		public TextView diamondPT;
+		public TextView diamondName;
 		public TextView jewelleryTypeName;
 		public TextView genderName;
 		public TextView wearingStyleName;

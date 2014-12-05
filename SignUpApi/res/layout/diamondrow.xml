@@ -10,7 +10,7 @@
         android:id="@+id/CT"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:text="Goldjewellery"
+        android:text="diamond_jewellery"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#166CED" />
 
@@ -20,7 +20,7 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:id="@+id/ivImageLogo1"
+            android:id="@+id/diamondlogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -35,7 +35,7 @@
                 android:id="@+id/PT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ear Ring"
+                android:text="Ring"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#166CED" />
 
@@ -43,14 +43,14 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ear Ring"
+                android:text="Ring"
                 android:textColor="#D64530" />
 
             <TextView
                 android:id="@+id/jewellery_type_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gold"
+                android:text="Diamond"
                 android:textColor="#D64530" />
 
             <TextView
@@ -64,42 +64,42 @@
                 android:id="@+id/wearing_style_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Casual Wear"
+                android:text="Party Wear"
                 android:textColor="#D64530" />
 
             <TextView
                 android:id="@+id/design_type_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Drop"
+                android:text="Round"
                 android:textColor="#D64530" />
 
             <TextView
                 android:id="@+id/clarity_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="null"
+                android:text="VVS V"
                 android:textColor="#D64530" />
 
             <TextView
                 android:id="@+id/color_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yellow"
+                android:text="White"
                 android:textColor="#D64530" />
 
             <TextView
                 android:id="@+id/ring_size_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="null"
+                android:text="22.5"
                 android:textColor="#D64530" />
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="32,000.00"
+                android:text="89,000.00"
                 android:textColor="#D64530" />
         </LinearLayout>
     </LinearLayout>

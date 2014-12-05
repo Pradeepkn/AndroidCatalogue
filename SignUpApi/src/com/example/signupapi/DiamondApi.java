@@ -37,7 +37,7 @@ public class DiamondApi extends ActionBarActivity {
 		diamondList = new ArrayList<Diamond>();
 		new JSONAsyncDiamondTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Diamond");
 
-		ListView listView = (ListView) findViewById(R.id.goldView);
+		ListView listView = (ListView) findViewById(R.id.diamondView);
 		dAdapter = new DiamondAdapter(getApplicationContext(), R.layout.diamondrow, diamondList);
 
 		listView.setAdapter(dAdapter);
