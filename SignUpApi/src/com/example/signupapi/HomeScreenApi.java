@@ -2,7 +2,6 @@ package com.example.signupapi;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -12,6 +11,10 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.example.signupapi.Fragments.tabpannel.MyTabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabView;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -28,11 +31,17 @@ public class HomeScreenApi extends Activity{
 
 	ArrayList<HomeScreen> homeList;
 	HomeScreenAdapter adapter;
+	JSONObject jObj;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home_screen_api);
+		TabHostProvider tabProvider = new MyTabHostProvider(HomeScreenApi.this);
+		TabView tabView = tabProvider.getTabHost("Home");
+		tabView.setCurrentView(R.layout.activity_home_screen_api);
+		setContentView(tabView.render(0));
+		//setContentView(R.layout.activity_home_screen_api);
+
 		homeList = new ArrayList<HomeScreen>();
 		new JSONAsyncTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=homeScreens");
 
@@ -97,13 +106,12 @@ public class HomeScreenApi extends Activity{
 					JSONArray jarray = result.getJSONArray("listOfItems");
 
 					for (int i = 0; i < jarray.length(); i++) {
-						JSONObject jObj = jarray.getJSONObject(i);
-
-						HomeScreen homeScreen = new HomeScreen();
-
-						homeScreen.setUri(jObj.getString("uri"));
-						homeList.add(homeScreen);
+						jObj = jarray.getJSONObject(i);
 					}
+
+					HomeScreen homeScreen = new HomeScreen();
+					homeScreen.setUri(jObj.getString("uri"));
+					homeList.add(homeScreen);
 					return true;
 				}
 			} catch (ParseException e1) {

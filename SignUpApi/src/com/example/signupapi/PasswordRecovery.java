@@ -1,27 +1,25 @@
 package com.example.signupapi;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.support.v7.app.ActionBarActivity;
 
-public class PasswordRecovery extends Activity implements OnClickListener{
+public class PasswordRecovery extends ActionBarActivity{
 
-	Button button;
+	//Button button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_password_recovery);
-		button = (Button) findViewById(R.id.submitButton11);
-		button.setOnClickListener(this);
+
+		/*ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(true);*/
+		/*button = (Button) findViewById(R.id.submitButton11);
+		button.setOnClickListener(this);*/
 	}
 
-	@Override
+	/*@Override
 	public void onClick(View v) {
 
 		Intent intent = new Intent(this,LoginApi.class);
@@ -44,5 +42,5 @@ public class PasswordRecovery extends Activity implements OnClickListener{
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
+	}*/
 }

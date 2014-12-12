@@ -96,5 +96,4 @@ public class OffersAdapter extends ArrayAdapter<Offers>{
 			bmImage.setImageBitmap(result);
 		}
 	}
-
 }

@@ -1,7 +1,6 @@
 package com.example.signupapi;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,7 +17,7 @@ public class HomePage extends Activity {
 		System.out.println("entering to the jwelery home page");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_page);
-		final Context context = this;
+		//final Context context = this;
 
 		textView = (TextView) findViewById(R.id.clickhereView);
 
@@ -26,8 +25,9 @@ public class HomePage extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, LoginApi.class);
+				Intent intent = new Intent(HomePage.this, LoginApi.class);
 				startActivity(intent);
+				finish();
 			}
 		}); 
 	}

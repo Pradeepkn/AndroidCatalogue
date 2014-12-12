@@ -12,6 +12,11 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.example.signupapi.Fragments.tabpannel.MyTabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabView;
+
 import android.support.v7.app.ActionBarActivity;
 import android.app.ProgressDialog;
 import android.net.ParseException;
@@ -33,7 +38,12 @@ public class DiamondApi extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_diamond_api);
+		TabHostProvider tabProvider = new MyTabHostProvider(DiamondApi.this);
+		TabView tabView = tabProvider.getTabHost("Diamond");
+		tabView.setCurrentView(R.layout.activity_diamond_api);
+		setContentView(tabView.render(2));
+		//setContentView(R.layout.activity_diamond_api);
+
 		diamondList = new ArrayList<Diamond>();
 		new JSONAsyncDiamondTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Diamond");
 

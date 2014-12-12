@@ -3,74 +3,73 @@ package com.example.signupapi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class LoginActivity extends Activity implements OnClickListener{
 
-	TextView textView1;
-	TextView textView2;
-	TextView textView3;
-	TextView textView4;
+	TextView homeText, offersText, updateOffersText, goldText, DiamondText, silverText, platinumText, settingsText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		textView1 = (TextView) findViewById(R.id.homeview);
-		textView2 = (TextView) findViewById(R.id.offersview1);
-		textView3 = (TextView) findViewById(R.id.updateoffersapi);
-		textView4 = (TextView) findViewById(R.id.goldApi);
-		textView1.setOnClickListener(this);
-		textView2.setOnClickListener(this);
-		textView3.setOnClickListener(this);
-		textView4.setOnClickListener(this);
+
+		homeText = (TextView) findViewById(R.id.homeView);
+		offersText = (TextView) findViewById(R.id.offersView);
+		updateOffersText = (TextView) findViewById(R.id.updateOffersView);
+		goldText = (TextView) findViewById(R.id.goldView1);
+		DiamondText = (TextView) findViewById(R.id.diamondView1);
+		silverText = (TextView) findViewById(R.id.silverView1);
+		platinumText = (TextView) findViewById(R.id.platinumView1);
+		settingsText = (TextView) findViewById(R.id.settingsView);
+
+		homeText.setOnClickListener(this);
+		offersText.setOnClickListener(this);
+		updateOffersText.setOnClickListener(this);
+		goldText.setOnClickListener(this);
+		DiamondText.setOnClickListener(this);
+		silverText.setOnClickListener(this);
+		platinumText.setOnClickListener(this);
+		settingsText.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
+
 		switch (v.getId()) {
-		case R.id.homeview:
-			Intent intent = new Intent(this, HomeScreenApi.class);
-			startActivity(intent);
+		case R.id.homeView:
+			Intent homeIntent = new Intent(LoginActivity.this, HomeScreenApi.class);
+			startActivity(homeIntent);
 			break;
-		case R.id.offersview1:
-			Intent intent1 = new Intent(this, OffersApi.class);
-			startActivity(intent1);
+		case R.id.offersView:
+			Intent offersIntent = new Intent(LoginActivity.this, OffersApi.class);
+			startActivity(offersIntent);
 			break;
-		case R.id.updateoffersapi:
-			Intent intent2 = new Intent(this, UpdateOffersApi.class);
-			startActivity(intent2);
+		case R.id.updateOffersView:
+			Intent updateIntent = new Intent(LoginActivity.this, UpdateOffersApi.class);
+			startActivity(updateIntent);
 			break;
-		case R.id.goldApi:
-			Intent intent3 = new Intent(this, GoldApi.class);
-			startActivity(intent3);
+		case R.id.goldView1:
+			Intent goldIntent = new Intent(LoginActivity.this, GoldApi.class);
+			startActivity(goldIntent);
 			break;
+		case R.id.diamondView1:
+			Intent diamondIntent = new Intent(LoginActivity.this, DiamondApi.class);
+			startActivity(diamondIntent);
+			break;
+		case R.id.platinumView1:
+			Intent platinumIntent = new Intent(LoginActivity.this, PlatinumApi.class);
+			startActivity(platinumIntent);
+			break;
+		case R.id.silverView1:
+			Intent silverIntent = new Intent(LoginActivity.this, SilverApi.class);
+			startActivity(silverIntent);
+			break;
+
 		default:
 			break;
 		}
-
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 }

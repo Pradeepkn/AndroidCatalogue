@@ -13,7 +13,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.support.v7.app.ActionBarActivity;
+import com.example.signupapi.Fragments.tabpannel.MyTabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabView;
+
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.net.ParseException;
 import android.os.AsyncTask;
@@ -26,7 +30,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class SilverApi extends ActionBarActivity {
+public class SilverApi extends Activity {
 
 	ArrayList<Silver> silverList;
 	SilverAdapter sAdapter;
@@ -34,7 +38,11 @@ public class SilverApi extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_silver_api);
+		TabHostProvider tabProvider = new MyTabHostProvider(SilverApi.this);
+		TabView tabView = tabProvider.getTabHost("Silver");
+		tabView.setCurrentView(R.layout.activity_silver_api);
+		setContentView(tabView.render(3));
+		//setContentView(R.layout.activity_silver_api);
 
 		//creating list of silver items in an array
 		silverList = new ArrayList<Silver>();

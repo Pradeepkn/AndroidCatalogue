@@ -12,6 +12,11 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.example.signupapi.Fragments.tabpannel.MyTabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabView;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.net.ParseException;
@@ -33,7 +38,11 @@ public class PlatinumApi extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_platinum_api);
+		TabHostProvider tabProvider = new MyTabHostProvider(PlatinumApi.this);
+		TabView tabView = tabProvider.getTabHost("Platinum");
+		tabView.setCurrentView(R.layout.activity_platinum_api);
+		setContentView(tabView.render(4));
+		//setContentView(R.layout.activity_platinum_api);
 
 		platinumList = new ArrayList<Platinum>();
 		new JSONAsyncPlatinumTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Platinum");

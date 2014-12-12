@@ -7,11 +7,17 @@
     android:orientation="vertical"
     tools:context=".HomeScreenApi" >
 
-    <ListView
-        android:id="@+id/homescreenview"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/row" >
-    </ListView>
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/homescreenview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/row" >
+        </ListView>
+    </LinearLayout>
 
 </LinearLayout>

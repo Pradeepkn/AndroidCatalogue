@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="11"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".HomePage"
-            android:label="@string/title_activity_home_page" >
+            android:label="@string/title_activity_home_page"
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,63 +27,78 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/title_activity_sign_up_activity" >
+            android:label="@string/title_activity_sign_up_activity"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".LoginApi"
-            android:label="@string/title_activity_login_api" >
+            android:label="@string/title_activity_login_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".SignUpSuccess"
-            android:label="@string/title_activity_sign_up_success" >
+            android:label="@string/title_activity_sign_up_success"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".ForgotPassword"
-            android:label="@string/title_activity_forgot_password" >
+            android:label="@string/title_activity_forgot_password"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".PasswordRecovery"
-            android:label="@string/title_activity_password_recovery" >
+            android:label="@string/title_activity_password_recovery"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".HomeScreenApi"
-            android:label="@string/title_activity_home_screen_api" >
+            android:label="@string/title_activity_home_screen_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".OffersApi"
-            android:label="@string/title_activity_offers_api" >
+            android:label="@string/title_activity_offers_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".UpdateOffersApi"
-            android:label="@string/title_activity_update_offers_api" >
+            android:label="@string/title_activity_update_offers_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".UpdateOffersSucuess"
-            android:label="@string/title_activity_update_offers_sucuess" >
+            android:label="@string/title_activity_update_offers_sucuess"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".GoldApi"
-            android:label="@string/title_activity_gold_api" >
+            android:label="@string/title_activity_gold_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".DiamondApi"
-            android:label="@string/title_activity_diamond_api" >
+            android:label="@string/title_activity_diamond_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".SilverApi"
-            android:label="@string/title_activity_silver_api" >
+            android:label="@string/title_activity_silver_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".PlatinumApi"
-            android:label="@string/title_activity_platinum_api" >
+            android:label="@string/title_activity_platinum_api"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".CarouselActivity"
-            android:label="@string/title_activity_carousel" >
+            android:label="@string/title_activity_carousel"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

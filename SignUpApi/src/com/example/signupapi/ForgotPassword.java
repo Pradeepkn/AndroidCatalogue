@@ -1,37 +1,15 @@
 package com.example.signupapi;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.ParseException;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class ForgotPassword extends Activity implements OnClickListener{
+public class ForgotPassword extends ActionBarActivity{
 
-	private EditText eMail;
-	private Button submit;
+	/*private EditText eMail;
+	private Button submit;*/
 
-	String responseText = null;
+	/*String responseText = null;
 	// JSON Response node names
 	private static String TAG_STATUSCODE  = "statusCode";
 	private static int TAG_ERRORCODE ;
@@ -44,16 +22,21 @@ public class ForgotPassword extends Activity implements OnClickListener{
 	//HandleJSON1 jsonParser = new HandleJSON1();
 
 	//testing on device:
-	private static final String url = "http://brinvents.com/jewel/Apis/forgetpwdclass.php?email=";
+	private static final String url = "http://brinvents.com/jewel/Apis/forgetpwdclass.php?email=";*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		System.out.println("on create() started.......................");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forgot_password);
-		eMail = (EditText) findViewById(R.id.eMail1);
+
+		/*ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(true);*/
+
+		/*eMail = (EditText) findViewById(R.id.eMail1);
 		submit = (Button) findViewById(R.id.submitButton);
-		submit.setOnClickListener(this);
+		submit.setOnClickListener(this);*/
 	}
 
 	@Override
@@ -63,7 +46,7 @@ public class ForgotPassword extends Activity implements OnClickListener{
 		return true;
 	}
 
-	@Override
+	/*@Override
 	public void onClick(View v) {
 
 		System.out.println("when getpassword button is clicked......................");
@@ -72,9 +55,9 @@ public class ForgotPassword extends Activity implements OnClickListener{
 
 	class SendPassword extends AsyncTask<String, String, String> {
 
-		/**
-		 * Before starting background thread Show Progress Dialog
-		 * */
+	 *//**
+	 * Before starting background thread Show Progress Dialog
+	 * *//*
 		boolean failure = false;
 
 		@Override
@@ -149,14 +132,14 @@ public class ForgotPassword extends Activity implements OnClickListener{
 				startActivity(inent);
 
 				//success condition 
-				/*if (TAG_ERRORCODE == 0) {
+				if (TAG_ERRORCODE == 0) {
 				Log.d("signup Successful!", json.toString());
 				Intent i = new Intent(SignUpActivity.this, SignUpSuccess.class);
 				finish();
 				startActivity(i);
 			}else{
 				Log.d("user already exists", json.getString(TAG_ERRORMESSAGE));
-			}*/
+			}
 			} catch (JSONException e) {
 				e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
@@ -168,9 +151,9 @@ public class ForgotPassword extends Activity implements OnClickListener{
 			}
 			return null;
 		}
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
+	  *//**
+	  * After completing background task Dismiss the progress dialog
+	  * **//*
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog once product deleted
 			pDialog.dismiss();
@@ -178,5 +161,5 @@ public class ForgotPassword extends Activity implements OnClickListener{
 				Toast.makeText(ForgotPassword.this, file_url, Toast.LENGTH_LONG).show();
 			}
 		}
-	}
+	}*/
 }

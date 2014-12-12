@@ -1,37 +1,11 @@
 package com.example.signupapi;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import java.io.IOException;
+import android.support.v7.app.ActionBarActivity;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
+public class LoginApi extends ActionBarActivity {
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ParseException;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public class LoginApi extends Activity implements OnClickListener{
-
-	private EditText userName, Password;
+	/*private EditText userName, Password;
 	private Button login;
 	final Context context = this;
 	private TextView forgotPassword, signup;
@@ -47,14 +21,14 @@ public class LoginApi extends Activity implements OnClickListener{
 
 	public String TAG_STATUSCODE =null;
 	public  String TAG_ERRORMESSAGE = null;
-	public int TAG_ERRORCODE;
+	public int TAG_ERRORCODE;*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_api);
 
-		//setup input fields
+		/*//setup input fields
 		userName = (EditText)findViewById(R.id.userName1);
 		Password = (EditText)findViewById(R.id.password1);
 		forgotPassword = (TextView) findViewById(R.id.forgotpasswordView);
@@ -65,10 +39,10 @@ public class LoginApi extends Activity implements OnClickListener{
 
 		login.setOnClickListener(this);
 		signup.setOnClickListener(this);
-		forgotPassword.setOnClickListener(this);
+		forgotPassword.setOnClickListener(this);*/
 	}
 
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.login_api, menu);
@@ -96,9 +70,9 @@ public class LoginApi extends Activity implements OnClickListener{
 	}
 	class AttemptLogin extends AsyncTask<String, String, String> {
 
-		/**
-		 * Before starting background thread Show Progress Dialog
-		 * */
+	 *//**
+	 * Before starting background thread Show Progress Dialog
+	 * *//*
 		boolean failure = false;
 
 		@Override
@@ -167,7 +141,7 @@ public class LoginApi extends Activity implements OnClickListener{
 				//  success = json.getInt(TAG_SUCCESS);
 				if (TAG_ERRORCODE == 0) {
 					Log.d("Login Successful!", json.toString());
-					Intent i = new Intent(LoginApi.this, CarouselActivity.class);
+					Intent i = new Intent(LoginApi.this, LoginActivity.class);
 					finish();
 					startActivity(i);
 					//	return json.getString(TAG_MESSAGE);
@@ -176,8 +150,8 @@ public class LoginApi extends Activity implements OnClickListener{
 					//	return json.getString(TAG_MESSAGE);
 				}
 
-				/*Intent i = new Intent(LoginApi.this, SignUpActivity.class);
-				startActivity(i);*/
+				Intent i = new Intent(LoginApi.this, SignUpActivity.class);
+				startActivity(i);
 
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -189,9 +163,9 @@ public class LoginApi extends Activity implements OnClickListener{
 
 			return null;
 		}
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
+	  *//**
+	  * After completing background task Dismiss the progress dialog
+	  * **//*
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog once product deleted
 			pDialog.dismiss();
@@ -199,5 +173,5 @@ public class LoginApi extends Activity implements OnClickListener{
 				Toast.makeText(LoginApi.this, file_url, Toast.LENGTH_LONG).show();
 			}
 		}
-	}
+	}*/
 }

@@ -13,6 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.signupapi.Fragments.tabpannel.MyTabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabHostProvider;
+import com.example.signupapi.Fragments.tabpannel.TabView;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.net.ParseException;
@@ -34,7 +38,12 @@ public class GoldApi extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_gold_api);
+		TabHostProvider tabProvider = new MyTabHostProvider(GoldApi.this);
+		TabView tabView = tabProvider.getTabHost("Gold");
+		tabView.setCurrentView(R.layout.activity_gold_api);
+		setContentView(tabView.render(1));
+		//setContentView(R.layout.activity_gold_api);
+
 		goldList = new ArrayList<Gold>();
 		new JSONAsyncGoldTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Gold");
 

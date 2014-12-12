@@ -40,12 +40,13 @@ public class UpdateOffersApi extends Activity implements OnClickListener{
 	ProgressDialog pDialog;
 
 	//JSON Parser class
-	HandleJSON handleJson = new HandleJSON();
+	//HandleJSON handleJson = new HandleJSON();
 
 	//url
-	private static final String url = "http://brinvents.com/jewel/Apis/post_offers.php";
+	//private static final String url = "http://brinvents.com/jewel/Apis/post_offers.php";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		System.out.println("on create() started.......................");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update_offers_api);
 		jewelleryType = (EditText) findViewById(R.id.jewellerytypetextview);
@@ -65,7 +66,7 @@ public class UpdateOffersApi extends Activity implements OnClickListener{
 	public void onClick(View v) {
 
 		System.out.println("when updatebutton is clicked....");
-		new UpdateOffers().execute();
+		new UpdateOffers().execute("http://brinvents.com/jewel/Apis/post_offers.php");
 	}
 
 	@Override
@@ -98,14 +99,14 @@ public class UpdateOffersApi extends Activity implements OnClickListener{
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(UpdateOffersApi.this);
-			pDialog.setMessage("Creating User...");
+			pDialog.setMessage("Updating Offers...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();
 		}
 
 		@Override
-		protected String doInBackground(String... args) {
+		protected String doInBackground(String... urls) {
 
 			//getting values from edittext
 			String jewellerytype = jewelleryType.getText().toString();
@@ -133,7 +134,7 @@ public class UpdateOffersApi extends Activity implements OnClickListener{
 
 				//Request method is POST
 				DefaultHttpClient httpClient = new DefaultHttpClient();
-				HttpPost httpPostReq = new HttpPost(url);
+				HttpPost httpPostReq = new HttpPost(urls[0]);
 
 				//Create a String entity. String entity is appended to the url in a format that is required in HTTP POST.
 				StringEntity se = new StringEntity(jsonObj.toString());
