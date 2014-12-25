@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/home"
+    android:orientation="vertical"
+    android:padding="4dp" >
+
+    <LinearLayout
+        android:layout_width="507dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/brown1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/totalCost"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="Total Cost = "
+            android:textSize="5pt"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/todaysPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:hint="Today&apos;s Price"
+            android:textSize="4pt" />
+
+        <EditText
+            android:id="@+id/WeightInGrams"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:hint="Weight in grams"
+            android:textSize="4pt" />
+
+        <EditText
+            android:id="@+id/WatageCharges"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:hint="Watage Charges"
+            android:textSize="4pt" />
+
+        <EditText
+            android:id="@+id/MakingCharges"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@color/white"
+            android:hint="Making Charges"
+            android:textSize="4pt" />
+
+        <EditText
+            android:id="@+id/Discount"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:hint="Discount"
+            android:textSize="4pt" />
+
+        <EditText
+            android:id="@+id/VAT"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:hint="VAT"
+            android:textSize="4pt" />
+
+        <Button
+            android:id="@+id/CalculateId"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Calculate"
+            android:textSize="2.5pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/brown1"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/brown1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ring" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" >
+
+        <ImageView
+            android:id="@+id/homeRowLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+</LinearLayout>
