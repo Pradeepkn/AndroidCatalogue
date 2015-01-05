@@ -77,8 +77,9 @@ public class SignUpFragmentApi extends Fragment implements OnClickListener{
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.sign_up_fragment_api, container, false);
-
+		View view = inflater.inflate(R.layout.sign_up_fragment_api, container, false);	
+			
+		//calling initial components
 		initSignUpComponenets(view);
 		return view;
 	}
@@ -145,7 +146,7 @@ public class SignUpFragmentApi extends Fragment implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.register_button:
 			System.out.println("when signup button is clicked......................");
-			new CreateUser().execute("http://brinvents.com/jewel/Apis/signupclass.php");
+			new CreateUser().execute("http://brinvents.com/jew/api/signupclass.php");
 			break;
 
 		case R.id.closeView:

@@ -107,7 +107,7 @@ public class PlatinumAdapter extends ArrayAdapter<Platinum>{
 		}
 
 		protected void onPostExecute(Bitmap result) {
-			bmImage.setImageBitmap(result);
+			holder.imageview.setImageBitmap(result);
 		}
 	}
 }

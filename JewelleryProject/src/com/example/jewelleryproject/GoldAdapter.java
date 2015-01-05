@@ -1,6 +1,10 @@
 package com.example.jewelleryproject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
@@ -8,14 +12,16 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-public class GoldAdapter extends ArrayAdapter<Gold>{
+public class GoldAdapter extends ArrayAdapter<Gold> implements OnClickListener{
 
 	ArrayList<Gold> goldList;
 	LayoutInflater inflater;
@@ -41,6 +47,9 @@ public class GoldAdapter extends ArrayAdapter<Gold>{
 			//holder.goldCT = (TextView) v.findViewById(R.id.CT);
 			//holder.goldPT = (TextView) v.findViewById(R.id.PT);
 			holder.imageview = (ImageView) v.findViewById(R.id.ivImageLogo1);
+			/*holder.imageview.setLayoutParams(new GridView.LayoutParams(100,100));
+			holder.imageview.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			holder.imageview.setPadding(5, 5, 5, 5);*/
 			/*holder.jewelleryTypeName = (TextView) v.findViewById(R.id.jewellery_type_name);
 			holder.goldName = (TextView) v.findViewById(R.id.name);
 			holder.genderName = (TextView) v.findViewById(R.id.gender_name);
@@ -56,7 +65,11 @@ public class GoldAdapter extends ArrayAdapter<Gold>{
 			holder = (ViewHolder) v.getTag();
 		}
 		holder.imageview.setImageResource(R.drawable.ic_launcher);
-		new DownloadImageTask(holder.imageview).execute(goldList.get(position).getUri());
+
+		new DownloadImageTask().execute(goldList.get(position).getUri());
+		// calling DownloadAndReadImage class to load and save image in sd card
+		//	DownloadAndReadImage dImage = new DownloadAndReadImage(goldList.get(position).getUri());
+		//holder.imageview.setImageBitmap(dImage.getBitmapImage());
 		/*holder.goldCT.setText(goldList.get(position).getCT());
 		holder.goldPT.setText("PT:"+goldList.get(position).getPT());
 		holder.goldName.setText("name: " + goldList.get(position).getName());
@@ -87,22 +100,32 @@ public class GoldAdapter extends ArrayAdapter<Gold>{
 		public TextView price;*/
 	}
 
-	// DownloadImage AsyncTask
-	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-
+	public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 		ImageView bmImage;
 
-		public DownloadImageTask(ImageView bmImage) {
-			this.bmImage = bmImage;
-		}
-
+		// Actual download method, run in the task thread
 		@Override
 		protected Bitmap doInBackground(String... urls) {
 
 			String urldisplay = urls[0];
 			Bitmap bitmap = null;
-			try {
-				// Download Image from URL
+			try {   
+				File SDCardRoot = Environment.getExternalStorageDirectory();
+				File file = new File(SDCardRoot,"somefile.jpg");
+
+				SDCardRoot.mkdir();
+				InputStream inputStream = new URL(urls[0]).openStream();
+				OutputStream outputStream = new FileOutputStream(file);
+
+				int readlen;
+				byte[] buf = new byte[1024];
+				while ((readlen = inputStream.read(buf)) > 0)
+					outputStream.write(buf, 0, readlen);
+
+				outputStream.close();
+				inputStream.close();
+				bitmap = BitmapFactory.decodeFile("/mnt/sdcard");
+
 				InputStream in = new java.net.URL(urldisplay).openStream();
 				bitmap = BitmapFactory.decodeStream(in);
 			} catch (Exception e) {
@@ -110,11 +133,38 @@ public class GoldAdapter extends ArrayAdapter<Gold>{
 				e.printStackTrace();
 			}
 			return bitmap;
+			/*Bitmap bm = null;
+			try {
+				URL aURL = new URL(urls[0]);
+				URLConnection conn = aURL.openConnection();
+				conn.connect();
+				InputStream is = conn.getInputStream();
+				BufferedInputStream bis = new BufferedInputStream(is);
+				bm = BitmapFactory.decodeStream(bis);
+				bis.close();
+				is.close();
+			} catch (IOException e) {
+				Log.e("Error getting bitmap", e.getMessage());
+			}
+			return bm;*/
+			/*try {
+				InputStream in = new java.net.URL(urldisplay).openStream();
+				bitmap = BitmapFactory.decodeStream(in);
+			} catch (Exception e) {
+				Log.e("Error", e.getMessage());
+				e.printStackTrace();
+			}
+			return bitmap;*/
 		}
-
-		@Override
 		protected void onPostExecute(Bitmap result) {
 			holder.imageview.setImageBitmap(result);
 		}
 	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

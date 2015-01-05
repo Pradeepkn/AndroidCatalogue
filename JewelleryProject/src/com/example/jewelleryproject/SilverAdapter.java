@@ -110,7 +110,7 @@ public class SilverAdapter extends ArrayAdapter<Silver>{
 		}
 
 		protected void onPostExecute(Bitmap result) {
-			bmImage.setImageBitmap(result);
+			viewHolder.imageview.setImageBitmap(result);
 		}
 	}
 }

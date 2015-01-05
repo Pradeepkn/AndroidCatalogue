@@ -20,5 +20,6 @@
     <string name="title_activity_update_offers_api">UpdateOffersApi</string>
     <string name="title_activity_update_offers_success">UpdateOffersSuccess</string>
     <string name="title_activity_login_success">LoginSuccess</string>
+    <string name="title_activity_image_database">ImageDatabase</string>
 
 </resources>

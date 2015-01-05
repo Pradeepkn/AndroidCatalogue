@@ -37,6 +37,7 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 
 	ArrayList<Gold> goldList;
 	GoldAdapter gAdapter;
+	GridView gridView;
 
 	private Activity mGoldApi2;
 
@@ -58,7 +59,7 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 		goldList = new ArrayList<Gold>();
 		new JSONAsyncGoldTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Gold");
 
-		GridView gridView = (GridView) getActivity().findViewById(R.id.goldGridView);
+		gridView = (GridView) getActivity().findViewById(R.id.goldGridView);
 		gAdapter = new GoldAdapter(mGoldApi2, R.layout.gold_row, goldList);
 
 		gridView.setAdapter(gAdapter);
@@ -91,7 +92,6 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 		protected Boolean doInBackground(String... urls) {
 			try {
 
-				//------------------>>
 				HttpGet httpGet = new HttpGet(urls[0]);
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient.execute(httpGet);
@@ -163,9 +163,10 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 		}
 
 		protected void onPostExecute(Boolean result) {
-			dialog.cancel();
+			dialog.dismiss();
 			gAdapter.notifyDataSetChanged();
 			if(result == false)
+				//shows a quick little msg for User
 				Toast.makeText(mGoldApi2, "Unable to fetch data from server", Toast.LENGTH_LONG).show();
 		}
 	} 
