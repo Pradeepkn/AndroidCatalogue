@@ -22,7 +22,7 @@ public class WelcomeScreen extends ActionBarActivity implements OnClickListener 
 
 	@Override
 	public void onClick(View v) {
-		Intent in = new Intent(WelcomeScreen.this, SignUpAPI.class);
+		Intent in = new Intent(WelcomeScreen.this, LoginAPI.class);
 		startActivity(in);
 
 	}

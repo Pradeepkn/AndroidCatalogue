@@ -32,6 +32,22 @@
             android:name=".LoginAPI"
             android:label="@string/title_activity_login_api" >
         </activity>
+        <activity
+            android:name=".ForgotPassword"
+            android:label="@string/title_activity_forgot_password" >
+        </activity>
+        <activity
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page" >
+        </activity>
+        <activity
+            android:name=".ForgotPasswordAPI"
+            android:label="@string/title_activity_forgot_password_api" >
+        </activity>
+        <activity
+            android:name=".ForgotPasword"
+            android:label="@string/title_activity_forgot_pasword" >
+        </activity>
     </application>
 
 </manifest>

@@ -6,5 +6,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_sign_up_api">SignUpAPI</string>
     <string name="title_activity_login_api">LoginAPI</string>
+    <string name="title_activity_forgot_password">ForgotPassword</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_forgot_password_api">ForgotPasswordAPI</string>
+    <string name="title_activity_forgot_pasword">ForgotPasword</string>
 
 </resources>
