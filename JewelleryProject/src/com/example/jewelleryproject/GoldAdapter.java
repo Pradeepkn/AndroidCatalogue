@@ -1,10 +1,6 @@
 package com.example.jewelleryproject;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
@@ -12,7 +8,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,25 +19,38 @@ import android.widget.ImageView;
 public class GoldAdapter extends ArrayAdapter<Gold> implements OnClickListener{
 
 	ArrayList<Gold> goldList;
+	
 	LayoutInflater inflater;
+	
 	int Resource;
+	
 	ViewHolder holder;
+	
 	ProgressDialog mProgressDialog;
 
 	public GoldAdapter(Context context, int resource, ArrayList<Gold> objects) {
+		
 		super(context, resource, objects);
+		
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
 		Resource = resource;
+		
 		goldList = objects;
 	}
 
+	//Get a View that displays the data at the specified position in the data set
+	// create a new ImageView for each item referenced by the Adapter
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		// convert view = design
 		View v = convertView;
+		
 		if (v == null) {
+			
 			holder = new ViewHolder();
+			
 			v = inflater.inflate(Resource, null);
 			//holder.goldCT = (TextView) v.findViewById(R.id.CT);
 			//holder.goldPT = (TextView) v.findViewById(R.id.PT);
@@ -86,6 +94,7 @@ public class GoldAdapter extends ArrayAdapter<Gold> implements OnClickListener{
 	}
 
 	static class ViewHolder {
+		
 		public ImageView imageview;
 		/*public TextView goldCT;
 		public TextView goldPT;
@@ -101,40 +110,18 @@ public class GoldAdapter extends ArrayAdapter<Gold> implements OnClickListener{
 	}
 
 	public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+		
 		ImageView bmImage;
 
 		// Actual download method, run in the task thread
 		@Override
 		protected Bitmap doInBackground(String... urls) {
 
-			String urldisplay = urls[0];
+			//return download_Image(urls[0]);
 			Bitmap bitmap = null;
-			try {   
-				File SDCardRoot = Environment.getExternalStorageDirectory();
-				File file = new File(SDCardRoot,"somefile.jpg");
-
-				SDCardRoot.mkdir();
-				InputStream inputStream = new URL(urls[0]).openStream();
-				OutputStream outputStream = new FileOutputStream(file);
-
-				int readlen;
-				byte[] buf = new byte[1024];
-				while ((readlen = inputStream.read(buf)) > 0)
-					outputStream.write(buf, 0, readlen);
-
-				outputStream.close();
-				inputStream.close();
-				bitmap = BitmapFactory.decodeFile("/mnt/sdcard");
-
-				InputStream in = new java.net.URL(urldisplay).openStream();
-				bitmap = BitmapFactory.decodeStream(in);
-			} catch (Exception e) {
-				Log.e("Error", e.getMessage());
-				e.printStackTrace();
-			}
-			return bitmap;
-			/*Bitmap bm = null;
-			try {
+			
+			String urldisplay = urls[0];
+			/*try {
 				URL aURL = new URL(urls[0]);
 				URLConnection conn = aURL.openConnection();
 				conn.connect();
@@ -147,24 +134,46 @@ public class GoldAdapter extends ArrayAdapter<Gold> implements OnClickListener{
 				Log.e("Error getting bitmap", e.getMessage());
 			}
 			return bm;*/
-			/*try {
+			try {
+				
 				InputStream in = new java.net.URL(urldisplay).openStream();
+				
 				bitmap = BitmapFactory.decodeStream(in);
+				
 			} catch (Exception e) {
+				
 				Log.e("Error", e.getMessage());
+				
 				e.printStackTrace();
+				
 			}
-			return bitmap;*/
+			return bitmap;
 		}
 		protected void onPostExecute(Bitmap result) {
+			
 			holder.imageview.setImageBitmap(result);
 		}
+		/*private Bitmap download_Image(String url) {
+
+			Bitmap bm = null;
+			try {
+				URL aURL = new URL(url);
+				URLConnection conn = aURL.openConnection();
+				conn.connect();
+				InputStream is = conn.getInputStream();
+				BufferedInputStream bis = new BufferedInputStream(is);
+				bm = BitmapFactory.decodeStream(bis);
+				bis.close();
+				is.close();
+			} catch (IOException e) {
+				Log.e("Hub","Error getting the image from server : " + e.getMessage().toString());
+			} 
+			return bm;
+		}*/
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
-	}
 
+	}
 }

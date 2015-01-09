@@ -19,10 +19,8 @@ public class Gold {
 
 	}
 
-	public Gold(String CT, String PT, String name, String jewellery_type_name,
-			String gender_name, String wearing_style_name,
-			String design_type_name, String clarity_name, String color_name,
-			String ring_size_name, String uri, String price) {
+	public Gold(String CT, String PT, String name, String jewellery_type_name, String gender_name, String wearing_style_name, String design_type_name, String clarity_name, String color_name, String ring_size_name, String uri, String price) {
+		
 		super();
 		/*this.CT = CT;
 		this.PT = PT;

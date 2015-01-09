@@ -18,14 +18,21 @@ import android.widget.TextView;
 public class OffersAdapter extends ArrayAdapter<Offers>{
 
 	ArrayList<Offers> offerList;
+
 	LayoutInflater vi;
+
 	int Resource;
+
 	ViewHolder holder;
 
 	public OffersAdapter(Context context, int resource, ArrayList<Offers> objects) {
+
 		super(context, resource, objects);
+
 		vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
 		Resource = resource;
+
 		offerList = objects;
 	}
 
@@ -34,12 +41,19 @@ public class OffersAdapter extends ArrayAdapter<Offers>{
 
 		// convert view = design
 		View v = convertView;
+
 		if (v == null) {
+
 			holder = new ViewHolder();
+
 			v = vi.inflate(Resource, null);
+
 			holder.imageview = (ImageView) v.findViewById(R.id.ivImageLogo);
+
 			holder.offerJewelleryType = (TextView) v.findViewById(R.id.jewellery_type);
+
 			holder.offerDisscount = (TextView) v.findViewById(R.id.offer_discount);
+
 			holder.offerMakingChargeDisccount = (TextView) v.findViewById(R.id.making_charge_discount);
 			holder.offerOnPurity = (TextView) v.findViewById(R.id.offer_on_purity);
 			holder.offerType = (TextView) v.findViewById(R.id.offer_type);

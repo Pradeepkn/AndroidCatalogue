@@ -3,27 +3,42 @@ package com.example.jewelleryproject;
 public class Offers {
 
 	private String jewellery_type;
+
 	private String offer_type;
+
 	private String offer_discount;
+
 	private String making_charge_discount;
+
 	private String wastage_charge;
+
 	private String offer_on_purity;
+
 	private String offer_validity;
+
 	private String offer_image;
 
 	public Offers() {
 	}
 
-	public Offers(String jewellery_type, String offer_type, String offer_discount, String making_charge_discount,
-			String wastage_charge, String offer_on_purity, String offer_validity, String offer_image) {
+	public Offers(String jewellery_type, String offer_type, String offer_discount, String making_charge_discount, String wastage_charge, String offer_on_purity, String offer_validity, String offer_image) {
+
 		super();
+
 		this.jewellery_type = jewellery_type;
+
 		this.offer_type = offer_type;
+
 		this.offer_discount = offer_discount;
+
 		this.making_charge_discount = making_charge_discount;
+
 		this.wastage_charge = wastage_charge;
+
 		this.offer_on_purity = offer_on_purity;
+
 		this.offer_validity = offer_validity;
+
 		this.offer_image = offer_image;
 	}
 

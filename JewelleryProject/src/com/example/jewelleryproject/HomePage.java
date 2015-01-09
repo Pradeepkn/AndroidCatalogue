@@ -16,7 +16,9 @@ public class HomePage extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		System.out.println("entering to the jwelery home page");
+
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_home_page);
 
 		//final Context context = this;
@@ -27,8 +29,11 @@ public class HomePage extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
+
 				Intent intent = new Intent(HomePage.this, LoginApi.class);
+
 				startActivity(intent);
+
 				finish();
 			}
 		}); 
@@ -43,6 +48,7 @@ public class HomePage extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home_page, menu);
+
 		return true;
 	}
 
@@ -52,7 +58,9 @@ public class HomePage extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+
 		if (id == R.id.action_settings) {
+
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

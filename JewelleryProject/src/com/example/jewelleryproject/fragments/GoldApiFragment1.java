@@ -16,22 +16,28 @@ public class GoldApiFragment1 extends Fragment implements OnClickListener{
 
 	@Override
 	public void onAttach(Activity activity) {
+
 		mGoldApi1 = activity;
+
 		super.onAttach(activity);
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
+
 		System.out.println("on create() started.......................");
-		//mSignUpActivity.setContentView(R.layout.signup_fragment_api);
+
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		View view = inflater.inflate(R.layout.gold_api_fragment1, container, false);
 
 		initSignUpComponenets(view);
+
 		return view;
 	}
 
@@ -43,5 +49,4 @@ public class GoldApiFragment1 extends Fragment implements OnClickListener{
 	public void onClick(View v) {
 
 	}
-
 }

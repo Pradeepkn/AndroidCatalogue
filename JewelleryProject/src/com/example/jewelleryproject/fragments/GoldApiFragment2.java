@@ -36,30 +36,38 @@ import android.widget.AdapterView.OnItemClickListener;
 public class GoldApiFragment2 extends Fragment implements OnClickListener{
 
 	ArrayList<Gold> goldList;
+
 	GoldAdapter gAdapter;
+
 	GridView gridView;
 
 	private Activity mGoldApi2;
 
 	@Override
 	public void onAttach(Activity activity) {
+
 		mGoldApi2 = activity;
+
 		super.onAttach(activity);
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		return inflater.inflate(R.layout.gold_row1, container, false);
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
+
 		super.onActivityCreated(savedInstanceState);
 
 		goldList = new ArrayList<Gold>();
+
 		new JSONAsyncGoldTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Gold");
 
 		gridView = (GridView) getActivity().findViewById(R.id.goldGridView);
+
 		gAdapter = new GoldAdapter(mGoldApi2, R.layout.gold_row, goldList);
 
 		gridView.setAdapter(gAdapter);
@@ -80,55 +88,76 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 
 		@Override
 		protected void onPreExecute() {
+
 			super.onPreExecute();
+
 			dialog = new ProgressDialog(mGoldApi2);
+
 			dialog.setMessage("LoadingImages, please wait");
+
 			dialog.setTitle("Connecting server");
+
 			dialog.show();
+
 			dialog.setCancelable(false);
 		}
 
 		@Override
 		protected Boolean doInBackground(String... urls) {
+
 			try {
 
 				HttpGet httpGet = new HttpGet(urls[0]);
+
 				HttpClient httpclient = new DefaultHttpClient();
+
 				HttpResponse response = httpclient.execute(httpGet);
 
 				int status = response.getStatusLine().getStatusCode();
 
 				if (status == 200) {
+
 					HttpEntity entity = response.getEntity();
+
 					String data = EntityUtils.toString(entity);
 
 					JSONObject json = new JSONObject(data);
+
 					System.out.println("response from the server-----------"+json);
 
 					JSONObject result = json.getJSONObject("Result");
+
 					int errorCode = result.getInt("errorCode");
+
 					System.out.println("ERROR_CODE->"+errorCode);
+
 					String errorMessage = result.getString("errorMessage");
+
 					System.out.println("ERROR_MESSAGE->"+errorMessage);
+
 					int statusCode = result.getInt("statusCode");
+
 					System.out.println("STATUS_CODE->"+statusCode);
 
 					//jsonarray parse for listOfItems
 					JSONArray jarray = result.getJSONArray("listOfItems");
 
 					for (int i = 0; i < jarray.length(); i++) {
+
 						JSONObject jsonObj = jarray.getJSONObject(i);
 
 						//jsonarray parse for products
 						JSONArray jarray1 = jsonObj.getJSONArray("products");
 
 						for (int j = 0; j < jarray1.length(); j++) {
+
 							JSONObject jsonObj1 = jarray1.getJSONObject(j);
 
 							//jsonarray parse for items
 							JSONArray jarray2 = jsonObj1.getJSONArray("items");
 
 							for (int k = 0; k < jarray2.length(); k++) {
+
 								JSONObject jsonObj2 = jarray2.getJSONObject(k);
 
 								Gold gold = new Gold();
@@ -153,18 +182,26 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 					return true;
 				}
 			} catch (ParseException e1) {
+
 				e1.printStackTrace();
+
 			} catch (IOException e) {
+
 				e.printStackTrace();
+
 			} catch (JSONException e) {
+
 				e.printStackTrace();
 			}
 			return false;
 		}
 
 		protected void onPostExecute(Boolean result) {
+
 			dialog.dismiss();
+
 			gAdapter.notifyDataSetChanged();
+
 			if(result == false)
 				//shows a quick little msg for User
 				Toast.makeText(mGoldApi2, "Unable to fetch data from server", Toast.LENGTH_LONG).show();
@@ -177,7 +214,9 @@ public class GoldApiFragment2 extends Fragment implements OnClickListener{
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+
 		if (id == R.id.action_settings) {
+
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

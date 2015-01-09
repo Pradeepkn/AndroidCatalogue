@@ -31,29 +31,36 @@ import android.widget.AdapterView.OnItemClickListener;
 public class DiamondApi extends Fragment {
 
 	ArrayList<Diamond> diamondList;
+	
 	DiamondAdapter dAdapter;
 
 	private Activity mDiamondApi;
 
 	@Override
 	public void onAttach(Activity activity) {
+		
 		mDiamondApi = activity;
+		
 		super.onAttach(activity);
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		
 		return inflater.inflate(R.layout.activity_diamond_api, container, false);
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
+		
 		super.onActivityCreated(savedInstanceState);
 
 		diamondList = new ArrayList<Diamond>();
+		
 		new JSONAsyncDiamondTask().execute("http://brinvents.com/jew/api/ListOfProducts/retrive.json?type=Diamond");
 
 		ListView listView = (ListView) getActivity().findViewById(R.id.diamondView);
+		
 		dAdapter = new DiamondAdapter(mDiamondApi, R.layout.diamond_row, diamondList);
 
 		listView.setAdapter(dAdapter);
@@ -61,8 +68,7 @@ public class DiamondApi extends Fragment {
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 				Toast.makeText(mDiamondApi, diamondList.get(position).getPT(), Toast.LENGTH_LONG).show();	
 			}
@@ -71,6 +77,7 @@ public class DiamondApi extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.activity_diamond_api);
 	}
@@ -80,73 +87,104 @@ public class DiamondApi extends Fragment {
 
 		@Override
 		protected void onPreExecute() {
+			
 			super.onPreExecute();
+			
 			dialog = new ProgressDialog(mDiamondApi);
+			
 			dialog.setMessage("LoadingImages, please wait");
+			
 			dialog.setTitle("Connecting server");
+			
 			dialog.show();
+			
 			dialog.setCancelable(false);
 		}
 
 		@Override
 		protected Boolean doInBackground(String... urls) {
+			
 			try {
 
 				//------------------>>
 				HttpGet httppost = new HttpGet(urls[0]);
+				
 				HttpClient httpclient = new DefaultHttpClient();
+				
 				HttpResponse response = httpclient.execute(httppost);
 
 				// StatusLine stat = response.getStatusLine();
 				int status = response.getStatusLine().getStatusCode();
 
 				if (status == 200) {
+					
 					HttpEntity entity = response.getEntity();
+					
 					String data = EntityUtils.toString(entity);
 
-
 					JSONObject json = new JSONObject(data);
+					
 					System.out.println("response from the server-----------"+json);
 
 					JSONObject result = json.getJSONObject("Result");
+					
 					int errorCode = result.getInt("errorCode");
+					
 					System.out.println("ERROR_CODE->"+errorCode);
+					
 					String errorMessage = result.getString("errorMessage");
+					
 					System.out.println("ERROR_MESSAGE->"+errorMessage);
+					
 					int statusCode = result.getInt("statusCode");
+					
 					System.out.println("STATUS_CODE->"+statusCode);
 
 					//jsonarray parse for listOfItems
 					JSONArray jarray = result.getJSONArray("listOfItems");
 
 					for (int i = 0; i < jarray.length(); i++) {
+						
 						JSONObject jsonObj = jarray.getJSONObject(i);
 
 						//jsonarray parse for products
 						JSONArray jarray1 = jsonObj.getJSONArray("products");
 
 						for (int j = 0; j < jarray1.length(); j++) {
+							
 							JSONObject jsonObj1 = jarray1.getJSONObject(j);
 
 							//jsonarray parse for items
 							JSONArray jarray2 = jsonObj1.getJSONArray("items");
 
 							for (int k = 0; k < jarray2.length(); k++) {
+								
 								JSONObject jsonObj2 = jarray2.getJSONObject(k);
 
 								Diamond diamond = new Diamond();
 
 								diamond.setCT(jsonObj.getString("CT"));
+								
 								diamond.setPT(jsonObj1.getString("PT"));
+								
 								diamond.setName(jsonObj2.getString("name"));
+								
 								diamond.setJewellery_type_name(jsonObj2.getString("jewellery_type_name"));
+								
 								diamond.setGender_name(jsonObj2.getString("gender_name"));
+								
 								diamond.setWearing_style_name(jsonObj2.getString("wearing_style_name"));
+								
 								diamond.setDesign_type_name(jsonObj2.getString("design_type_name"));
+								
 								diamond.setClarity_name(jsonObj2.getString("clarity_name"));
+								
 								diamond.setColor_name(jsonObj2.getString("color_name"));
+								
 								diamond.setRing_size_name(jsonObj2.getString("ring_size_name"));
+								
 								diamond.setUri(jsonObj2.getString("uri"));
+								
 								diamond.setPrice(jsonObj2.getString("price"));
 
 								diamondList.add(diamond);
@@ -157,19 +195,28 @@ public class DiamondApi extends Fragment {
 				}
 
 			} catch (ParseException e1) {
+				
 				e1.printStackTrace();
+				
 			} catch (IOException e) {
+				
 				e.printStackTrace();
+				
 			} catch (JSONException e) {
+				
 				e.printStackTrace();
 			}
 			return false;
 		}
 
 		protected void onPostExecute(Boolean result) {
+			
 			dialog.cancel();
+			
 			dAdapter.notifyDataSetChanged();
+			
 			if(result == false)
+				
 				Toast.makeText(mDiamondApi, "Unable to fetch data from server", Toast.LENGTH_LONG).show();
 		}
 	} 
@@ -180,7 +227,9 @@ public class DiamondApi extends Fragment {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		
 		if (id == R.id.action_settings) {
+			
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

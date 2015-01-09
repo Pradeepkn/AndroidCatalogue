@@ -29,21 +29,25 @@ public class PasswordRecoveryFragment extends Fragment implements OnClickListene
 
 	@Override
 	public void onAttach(Activity activity) {
+
 		mPasswordRecovery = activity;
+
 		super.onAttach(activity);
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		View view = inflater.inflate(R.layout.password_recovery_fragment, container, false);
 
 		initForgotScreenComponents(view);
+
 		return view;
 	}
 
@@ -52,53 +56,21 @@ public class PasswordRecoveryFragment extends Fragment implements OnClickListene
 	 * @param view
 	 */
 	private void initForgotScreenComponents(View view) {
+
 		passwordEditText = (EditText)view.findViewById(R.id.recovery_editText);
+
 		cPasswordEditText = (EditText)view.findViewById(R.id.crecovery_editText);
 
 		Button submitButton = (Button)view.findViewById(R.id.recovery_button);
+
 		submitButton.setOnClickListener(this);
 	}
 
-	/*@Override
-	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
-
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
-	}
-	 */
 	@Override
 	public void onClick(View v) {
 
 		Intent intent = new Intent(mPasswordRecovery,LoginApi.class);
+
 		startActivity(intent);
 	}
-
 }

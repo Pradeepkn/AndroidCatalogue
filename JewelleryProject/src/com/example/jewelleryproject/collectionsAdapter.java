@@ -18,13 +18,21 @@ import android.widget.TextView;
 public class collectionsAdapter extends ArrayAdapter<Collections>{
 
 	ArrayList<Collections> collectionsList;
+
 	LayoutInflater inflater;
+
 	ViewHolder viewHolder;
+
 	int Resource;
+
 	public collectionsAdapter(Context context, int resource, ArrayList<Collections> object) {
+
 		super(context, resource, object);
+
 		Resource = resource;
+
 		collectionsList = object;
+
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
@@ -32,19 +40,29 @@ public class collectionsAdapter extends ArrayAdapter<Collections>{
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		View rowView = convertView;
+
 		if(rowView == null){
 
 			viewHolder = new ViewHolder();
+
 			rowView = inflater.inflate(Resource, null);
 
 			viewHolder.imageView = (ImageView) rowView.findViewById(R.id.collLogo);
+
 			viewHolder.item_type = (TextView) rowView.findViewById(R.id.item_type);
+
 			viewHolder.purity = (TextView) rowView.findViewById(R.id.purity);
+
 			viewHolder.price = (TextView) rowView.findViewById(R.id.price);
+
 			viewHolder.occassion = (TextView) rowView.findViewById(R.id.occassion);
+
 			viewHolder.weight = (TextView) rowView.findViewById(R.id.weight);
+
 			viewHolder.making_charge = (TextView) rowView.findViewById(R.id.making_charge);
+
 			viewHolder.wastage = (TextView) rowView.findViewById(R.id.wastage);
+
 			viewHolder.model = (TextView) rowView.findViewById(R.id.model);
 
 			rowView.setTag(viewHolder);
@@ -53,15 +71,23 @@ public class collectionsAdapter extends ArrayAdapter<Collections>{
 		}
 
 		viewHolder.imageView.setImageResource(R.drawable.ic_launcher);
+
 		new DownloadCollImageTask(viewHolder.imageView).execute(collectionsList.get(position).getImage_path());
 
 		viewHolder.item_type.setText("Itemtype"+collectionsList.get(position).getItem_type());
+
 		viewHolder.purity.setText("Purity"+collectionsList.get(position).getPurity());
+
 		viewHolder.price.setText("Price"+collectionsList.get(position).getPrice());
+
 		viewHolder.occassion.setText("Occassion"+collectionsList.get(position).getOccassion());
+
 		viewHolder.weight.setText("Weight"+collectionsList.get(position).getWeight());
+
 		viewHolder.making_charge.setText("Making_charge"+collectionsList.get(position).getMaking_charge());
+
 		viewHolder.wastage.setText("Wastage"+collectionsList.get(position).getWastage());
+
 		viewHolder.model.setText("Model"+collectionsList.get(position).getModel());
 
 		return rowView;
@@ -70,13 +96,21 @@ public class collectionsAdapter extends ArrayAdapter<Collections>{
 	static class ViewHolder{
 
 		public ImageView imageView;
+
 		public TextView item_type;
+
 		public TextView purity;
+
 		public TextView price;
+
 		public TextView occassion;
+
 		public TextView weight;
+
 		public TextView making_charge;
+
 		public TextView wastage;
+
 		public TextView model;
 	}
 
@@ -85,6 +119,7 @@ public class collectionsAdapter extends ArrayAdapter<Collections>{
 		ImageView bmImage;
 
 		public DownloadCollImageTask(ImageView bmImage){
+
 			this.bmImage = bmImage;
 		}
 
@@ -92,18 +127,26 @@ public class collectionsAdapter extends ArrayAdapter<Collections>{
 		protected Bitmap doInBackground(String... urls) {
 
 			String urldisplay = urls[0];
+
 			Bitmap mIcon11 = null;
+
 			try {
+
 				InputStream in = new java.net.URL(urldisplay).openStream();
+
 				mIcon11 = BitmapFactory.decodeStream(in);
+
 			} catch (Exception e) {
+
 				Log.e("Error", e.getMessage());
+
 				e.printStackTrace();
 			}
 			return mIcon11;
 		}
 
 		protected void onPostExecute(Bitmap result) {
+
 			bmImage.setImageBitmap(result);
 		}
 	}
