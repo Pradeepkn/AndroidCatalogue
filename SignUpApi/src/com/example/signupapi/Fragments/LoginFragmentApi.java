@@ -140,7 +140,7 @@ public class LoginFragmentApi extends Fragment implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.login_button:
-			new AttemptLogin().execute("http://brinvents.com/jewel/Apis/loginclass.php");
+			new AttemptLogin().execute("your url.do");
 			break;
 		case R.id.signup_textview:
 			Intent signUpIntent = new Intent(mLoginApi, SignUpActivity.class);
