@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_layout1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/login_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="Login"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp"
+            android:textStyle="normal|bold|italic"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/username_login_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="harishbs"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/password_login_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:text="8951776150"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif" >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_buttons"
+                android:text="Login"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!--
+                <com.facebook.login.widget.LoginButton
+                android:id="@+id/fb_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+            -->
+
+
+            <!-- Facebook Login Button -->
+
+            <Button
+                android:id="@+id/btn_fblogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:src="@drawable/btn_login"
+                android:text="Login with Facebook" />
+
+            <!-- Facebook Logout Button -->
+
+            <Button
+                android:id="@+id/btn_get_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:src="@drawable/btn_logout"
+                android:text="Get Profile Data"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/forgot_signup_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/forgot_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="ForgotPassword"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22sp"
+                android:textStyle="normal|bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/signup_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:gravity="center"
+                android:text="SignUp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22sp"
+                android:textStyle="normal|bold"
+                android:typeface="serif" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

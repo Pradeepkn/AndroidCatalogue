@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="brown">#aa9464</color>
+    <color name="white">#ffffff</color>
+    <color name="coffie">#999968</color>
+    <color name="yellow">#eaea00</color>
+    <color name="cream">#ffdbb7</color>
+    <color name="brown1">#aaaa00</color>
+    <color name="rblack">#000000</color>
+    <color name="blue">#4682f0</color>
+    <color name="silver">#ebebeb</color>
+    <color name="black">#2a2a2a</color>
+    <color name="radio_button_selected_color">#ffffff</color>
+    <color name="radio_button_unselected_color">@android:color/transparent</color>
+    <!-- color for login , forgot and sign up -->
+
+</resources>

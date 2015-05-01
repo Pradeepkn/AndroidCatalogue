@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/diamondItemsBackImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/backbutton" />
+
+        <TextView
+            android:id="@+id/diamondItemsBackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:text="Back"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/diamond_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/details_heading_roundback"
+            android:gravity="center"
+            android:text="Bangles"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/details_round_corner"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
+            android:id="@+id/djewellery_type_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diamond"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/dgender_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Women"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/dwearing_style_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Casual Wear"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/ddesign_type_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Round"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/dclarity_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="VVS VS"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/dcolor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="GH"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/ditem_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="66,500.00"
+            android:textColor="#D64530"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+</LinearLayout>

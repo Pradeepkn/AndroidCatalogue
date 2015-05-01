@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/goldFullScreenFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/first"
+        layout="@layout/activity_gold_full_screen_image" />
+
+    <include
+        android:id="@+id/second"
+        layout="@layout/full_screen_image_details"
+        android:background="@android:color/transparent" />
+
+</ViewFlipper>

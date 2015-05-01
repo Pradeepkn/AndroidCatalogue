@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignLeft="@+id/diamondLinearLayout"
+    android:layout_alignTop="@+id/diamondLinearLayout"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/diamondLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <fragment
+            android:id="@+id/diamondFragment"
+            android:name="com.example.goldproject.fragments.DiamondApiFirstFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/black" />
+
+        <fragment
+            android:id="@+id/diamondFragment1"
+            android:name="com.example.goldproject.fragments.DiamondApiSecondFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+    </LinearLayout>
+
+</LinearLayout>

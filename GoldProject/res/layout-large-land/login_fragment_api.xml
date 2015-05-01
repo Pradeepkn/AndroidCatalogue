@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_layout1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/login_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="Login"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp"
+            android:textStyle="normal|bold|italic"
+            android:typeface="serif" />
+
+         <TextView
+            android:id="@+id/username_login_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="harishbs"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="serif" /> 
+
+            <!--  <EditText 
+            android:id="@+id/username_login_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:hint="userName"/> -->
+        
+        <TextView
+            android:id="@+id/password_login_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:text="8951776150"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="serif" >
+        </TextView> 
+
+        <!-- <EditText
+            android:id="@+id/password_login_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif" />  -->
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounded_buttons"
+            android:text="Login"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/forgot_signup_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/forgot_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="ForgotPassword"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/signup_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:gravity="center"
+                android:text="SignUp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:typeface="serif" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

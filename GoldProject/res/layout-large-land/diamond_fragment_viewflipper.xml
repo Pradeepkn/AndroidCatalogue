@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/diamondFlipper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/first"
+        layout="@layout/diamond_api_fragment1" />
+
+    <include
+        android:id="@+id/second"
+        layout="@layout/activity_diamond_fragment1_slide2" />
+
+    <include
+        android:id="@+id/third"
+        layout="@layout/diamond_details_row" >
+    </include>
+
+</ViewFlipper>

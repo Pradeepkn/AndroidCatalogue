@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/platinumFlipper1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/first"
+        layout="@layout/activity_platinum_full_screen_image" />
+
+    <include
+        android:id="@+id/second"
+        layout="@layout/platinum_full_image_details" />
+
+</ViewFlipper>

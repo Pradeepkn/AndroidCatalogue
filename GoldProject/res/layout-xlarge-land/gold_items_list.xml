@@ -1,0 +1,29 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
+
+    <TableRow
+        android:id="@+id/GoldWomenRow"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/GoldWomenId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="3"
+            android:background="@drawable/text_round"
+            android:padding="10dip"
+            android:text="Women"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:typeface="serif" />
+    </TableRow>
+
+</TableLayout>

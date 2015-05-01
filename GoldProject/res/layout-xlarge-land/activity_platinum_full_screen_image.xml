@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/platinumfullScreenImageDetails"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:text="Click To Get Details"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/platinumSinglePager1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

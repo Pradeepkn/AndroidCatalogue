@@ -1,0 +1,14 @@
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/goldViewFlipper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/goldfirst"
+        layout="@layout/activity_gold_api" />
+
+    <include
+        android:id="@+id/goldsecond"
+        layout="@layout/gold_row1" />
+
+</ViewFlipper>

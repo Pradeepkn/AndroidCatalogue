@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@drawable/home" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/black"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="46dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/silverlinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/cream"
+        android:orientation="vertical" >
+
+        <SearchView
+            android:id="@+id/silverSearchView"
+            android:layout_width="800dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round" >
+        </SearchView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Spinner
+                android:id="@+id/silverPriceSpinner1"
+                android:layout_width="250dp"
+                android:layout_height="85dp"
+                android:background="@drawable/btn_dropdown" />
+
+            <Spinner
+                android:id="@+id/silverPuritySpinner1"
+                android:layout_width="250dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/btn_dropdown" />
+
+            <Spinner
+                android:id="@+id/silverWeightSpinner1"
+                android:layout_width="250dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/btn_dropdown" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="248dp"
+        android:orientation="vertical" >
+
+        <dev.dworks.libs.astickyheader.ui.PinnedSectionGridView
+            android:id="@+id/stickyGridHeadersSilverGridView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:columnWidth="100dp"
+            android:drawSelectorOnTop="true"
+            android:gravity="center"
+            android:horizontalSpacing="20dp"
+            android:numColumns="3"
+            android:paddingLeft="10dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="20dp" />
+    </LinearLayout>
+
+</RelativeLayout>

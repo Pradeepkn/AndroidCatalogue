@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/goldViewFlipperFrag1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/first"
+        layout="@layout/gold_fragment1_slide1" />
+
+    <include
+        android:id="@+id/second"
+        layout="@layout/activity_goldwomen_fragment_slide2" />
+
+    <include
+        android:id="@+id/third"
+        layout="@layout/activity_gold_fragment1_slide3" >
+    </include>
+
+</ViewFlipper>

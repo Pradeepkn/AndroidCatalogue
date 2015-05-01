@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/silverFullScreenFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/first"
+        layout="@layout/activity_silver_full_screen_image" />
+
+    <include
+        android:id="@+id/second"
+        layout="@layout/silver_full_image_details"
+        android:background="@android:color/transparent" />
+
+</ViewFlipper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@drawable/home" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:background="@color/silver"
+            android:gravity="center"
+            android:text="Details List"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:id="@+id/GoldItemRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/GoldItemId1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="3"
+                android:background="@drawable/text_round"
+                android:padding="10dip"
+                android:text="GoldItem"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/GoldItemRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/GoldItemId2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="3"
+                android:background="@drawable/text_round"
+                android:padding="10dip"
+                android:text="GoldItem"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/GoldItemRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/GoldItemId3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="3"
+                android:background="@drawable/text_round"
+                android:padding="10dip"
+                android:text="GoldItem"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/GoldItemRow4"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/GoldItemId4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="3"
+                android:background="@drawable/text_round"
+                android:padding="10dip"
+                android:text="GoldItem"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/GoldItemRow5"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/GoldItemId5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="3"
+                android:background="@drawable/text_round"
+                android:padding="10dip"
+                android:text="GoldItem"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+    </LinearLayout>
+
+</RelativeLayout>

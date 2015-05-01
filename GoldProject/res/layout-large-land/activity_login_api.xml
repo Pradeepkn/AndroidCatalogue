@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.goldproject.LoginApi" >
+
+    <ViewFlipper
+        android:id="@+id/view_flipper_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/mod" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/mod1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/mod2" />
+        </RelativeLayout>
+    </ViewFlipper>
+
+    <ViewFlipper
+        android:id="@+id/view_flipper_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp" >
+
+        <fragment
+            android:id="@+id/login_fragment"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            class="com.example.goldproject.fragments.LoginFragmentsApi" />
+
+        <fragment
+            android:id="@+id/forgotpasswordfragment"
+            android:layout_width="400dp"
+            android:layout_height="270dp"
+            class="com.example.goldproject.fragments.ForgotPasswordFragmentApi" />
+
+        <fragment
+            android:id="@+id/signup_fragment"
+            android:layout_width="400dp"
+            android:layout_height="380dp"
+            class="com.example.goldproject.fragments.SignUpFragmentsApi" />
+    </ViewFlipper>
+
+</RelativeLayout>
